@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>{% if object %}Изменить статью{% else %}Создать статью{% endif %}</title>
+  </head>
+  <body>
+    <main>
+      <h1>{% if object %}Изменить статью{% else %}Создать статью{% endif %}</h1>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить</button>
+      </form>
+      <a href="{% url 'blog_crud:blog_list' %}">Отмена</a>
+    </main>
+  </body>
+</html>
